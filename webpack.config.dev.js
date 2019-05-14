@@ -1,10 +1,23 @@
 const path = require('path');
+const webpack = require('webpack');
 
 module.exports = {
   mode: 'development',
-  entry: './client/app.js',
+  entry: [
+    './client/index.js'
+  ],
+  devtool: 'inline-source-map',
+  devServer: {
+    contentBase: './web',
+    hot: true
+  },
+  plugins: [
+    new webpack.HotModuleReplacementPlugin(),
+    new webpack.NoEmitOnErrorsPlugin()
+  ],
   output: {
     path: path.resolve(__dirname, 'web'),
+    publicPath: '/',
     filename: 'app.bundle.js'
   },
   module: {
@@ -21,6 +34,20 @@ module.exports = {
           ]
         }
       }
+    },
+    {
+      test: /(\.css|\.scss)$/,
+      use: [
+        'style-loader',
+        'css-loader',
+        {
+          loader: 'sass-loader',
+          options: {
+            sourceMap: true,
+            includePaths: [path.resolve(__dirname, 'node_modules')]
+          }
+        }
+      ]
     }]
   }
 };
