@@ -1,9 +1,8 @@
 const express = require('express');
 
 const ROUTER = express.Router();
+const controller = require('../api/controller');
 
-ROUTER.get('/hello', (req, res) => {
-  res.send({ greeting: 'hello' });
-});
+ROUTER.get('/hello', controller.getHello);
 
 module.exports = ROUTER;

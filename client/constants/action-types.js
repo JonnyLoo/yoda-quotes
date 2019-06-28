@@ -1,0 +1,3 @@
+export const GET_HELLO = 'GET_HELLO';
+export const GET_HELLO_SUCCESS = 'GET_HELLO_SUCCESS';
+export const GET_HELLO_ERROR = 'GET_HELLO_ERROR';
