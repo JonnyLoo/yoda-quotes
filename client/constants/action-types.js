@@ -1,3 +1,4 @@
-export const GET_HELLO = 'GET_HELLO';
-export const GET_HELLO_SUCCESS = 'GET_HELLO_SUCCESS';
-export const GET_HELLO_ERROR = 'GET_HELLO_ERROR';
+export const UPDATE_TEXT = 'UPDATE_TEXT';
+export const GET_YODISH = 'GET_YODISH';
+export const GET_YODISH_SUCCESS = 'GET_YODISH_SUCCESS';
+export const GET_YODISH_ERROR = 'GET_YODISH_ERROR';

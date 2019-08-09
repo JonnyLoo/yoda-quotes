@@ -1,7 +1,8 @@
 import fetch from 'isomorphic-fetch';
 import {Observable, from} from 'rxjs';
+import {assessResponseStatus} from '../utils/request-utils';
 
-const fetchHelper = (url, method) => {
+const fetchHelper = (url, method, body) => {
   const requestOptions = {
     method: method,
     headers: {
@@ -10,19 +11,23 @@ const fetchHelper = (url, method) => {
     }
   };
 
+  if(body) {
+    requestOptions.body = JSON.stringify(body);
+  }
+
   const request = fetch(url, requestOptions)
-    .then(response => {
-      return response.json().then(data => {
-        return Promise.resolve(data);
-      });
-    });
+    .then(response => assessResponseStatus(response));
 
   return from(request);
 };
 
 export const API = {
-  fetchGreeting: (store) => {
-    const url = 'http://localhost:4000/api/hello';
-    return fetchHelper(url, 'GET');
+  fetchYodaQuote: (state$) => {
+    const toYodish = state$.value.yoda.english,
+      url = 'http://localhost:4000/api/yoda',
+      body = {
+        text: toYodish
+      };
+    return fetchHelper(url, 'POST', body);
   }
 };
