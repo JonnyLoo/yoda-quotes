@@ -1,6 +1,6 @@
 import {combineEpics} from 'redux-observable';
-import {helloEpic} from './hello-epic';
+import {yodaEpic} from './yoda-epic';
 
 export default combineEpics(
-  helloEpic
+  yodaEpic
 );
