@@ -1,4 +1,4 @@
-import fetch from 'isomorphic-fetch';
+import axios from 'axios';
 import {Observable, from} from 'rxjs';
 import {assessResponseStatus} from '../utils/request-utils';
 
@@ -15,19 +15,15 @@ const fetchHelper = (url, method, body) => {
     requestOptions.body = JSON.stringify(body);
   }
 
-  const request = fetch(url, requestOptions)
+  const request = axios({ url, ...requestOptions })
     .then(response => assessResponseStatus(response));
 
   return from(request);
 };
 
 export const API = {
-  fetchYodaQuote: (state$) => {
-    const toYodish = state$.value.yoda.english,
-      url = 'http://localhost:4000/api/yoda',
-      body = {
-        text: toYodish
-      };
-    return fetchHelper(url, 'POST', body);
+  fetchAllQuotes: (state$) => {
+    const url = 'http://localhost:3000/api/quotes';
+    return fetchHelper(url, 'GET');
   }
 };

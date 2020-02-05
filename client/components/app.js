@@ -1,10 +1,10 @@
 import React from 'react';
-import Yoda from './yoda';
+import HomePage from './home-page';
 
 export default class App extends React.Component {
   render() {
     return (
-      <Yoda />
+      <HomePage />
     );
   }
 };

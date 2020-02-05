@@ -1,6 +1,6 @@
 import {combineEpics} from 'redux-observable';
-import {yodaEpic} from './yoda-epic';
+import {quotesEpic} from './quotes-epic';
 
 export default combineEpics(
-  yodaEpic
+  quotesEpic
 );

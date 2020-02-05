@@ -4,7 +4,7 @@ const path = require('path');
 
 const app = express();
 
-const yodaRoute = require('./routes/yoda');
+const routes = require('./routes');
 const logReqUrl = require('./middleware/log-req-url');
 
 app.use(bodyParser.urlencoded({
@@ -33,8 +33,8 @@ app.get('/', (req, res) => {
   res.send('index.html');
 });
 
-app.use('/api', logReqUrl, yodaRoute);
+app.use('/api', logReqUrl, routes);
 
-app.listen(4000, () => {
-  console.log('app listening on 4000');
+app.listen(3000, () => {
+  console.log('app listening on 3000');
 });

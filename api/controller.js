@@ -1,24 +1,16 @@
-const Request = require('request');
+const axios = require('axios');
 
-const getYodish = (req, res) => {
-  Request.post({
-    url: 'https://api.funtranslations.com/translate/yoda',
-    formData: req.body
-  },
-  (err, response, body) => {
-    if(err) {
-      console.error('a teapot, I am');
-      return res.status(418).send('a teapot, I am');
-    } else {
-      if(response.statusCode === 429) {
-        console.error('rate limited, you are');
-        return res.status(429).send('rate limited, you are');
-      }
-      return res.status(200).send(body);
-    }
-  });
+const getQuotes = async (req, res) => {
+  try {
+    const quotes = await axios.get('http://localhost:3001/yoda/v1/quotes');
+
+    return res.status(200).send(quotes.data);
+  }
+  catch (err) {
+    return res.status(418).send(err);
+  }
 }
 
 module.exports = {
-  getYodish
+  getQuotes
 };

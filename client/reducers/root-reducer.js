@@ -1,6 +1,6 @@
 import {combineReducers} from 'redux';
-import yodaReducer from './yoda-reducer';
+import quotesReducer from './quotes-reducer';
 
 export default combineReducers({
-  yoda: yodaReducer
+  quotes: quotesReducer
 });
