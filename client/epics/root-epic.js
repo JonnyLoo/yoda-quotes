@@ -1,6 +1,10 @@
 import {combineEpics} from 'redux-observable';
-import {quotesEpic} from './quotes-epic';
+import {
+  getAllQuotesEpic,
+  getRandomQuoteEpic
+} from './quotes-epic';
 
 export default combineEpics(
-  quotesEpic
+  getAllQuotesEpic,
+  getRandomQuoteEpic
 );
