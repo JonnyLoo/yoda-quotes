@@ -23,11 +23,11 @@ const fetchHelper = (url, method, body) => {
 
 export const API = {
   fetchAllQuotes: () => {
-    const url = 'http://localhost:3000/api/quotes';
+    const url = '/api/quotes';
     return fetchHelper(url, 'GET');
   },
   fetchRandomQuote: () => {
-    const url = 'http://localhost:3000/api/quotes/random';
+    const url = '/api/quotes/random';
     return fetchHelper(url, 'GET');
   }
 };
