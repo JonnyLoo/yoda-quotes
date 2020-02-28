@@ -2,6 +2,7 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const path = require('path');
 
+const config = require('./configs');
 const app = express();
 
 const routes = require('./routes');
@@ -35,6 +36,7 @@ app.get('/', (req, res) => {
 
 app.use('/api', logReqUrl, routes);
 
-app.listen(3000, () => {
-  console.log('app listening on 3000');
+const PORT = process.env.PORT || config.PORT;
+app.listen(PORT, () => {
+  console.log(`app listening on port ${config.PORT}`);
 });
