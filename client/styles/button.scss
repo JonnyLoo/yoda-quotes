@@ -5,9 +5,9 @@
   font-family: 'Raleway', sans-serif;
   font-size: 1em;
   background: none;
-  border: 2px solid $brown-1;
+  border: 2px solid $green-1;
   padding: .5em 1em;
-  color: $brown-1;
+  color: $green-1;
   text-transform: uppercase;
 
   &::before {
@@ -45,11 +45,6 @@
     &::after {
       left: 85%;
     }
-  }
-
-  &:active {
-    background: $brown-1;
-    color: $black;
   }
 
   &:focus {

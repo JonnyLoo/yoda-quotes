@@ -3,6 +3,7 @@ import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
 import PropTypes from 'prop-types';
 import Button from './button';
+import Stars from './stars';
 import * as QuotesActions from '../actions/quotes-actions';
 
 export class HomePage extends React.Component {
@@ -14,16 +15,25 @@ export class HomePage extends React.Component {
     this.props.getRandomQuote();
   }
 
-  render() {
+  yodaText() {
     if(this.props.isFetching) {
-      return <div className='loading'>{'Loading...'}</div>;
+      return <div className='loading'/>;
     }
 
     return (
-      <div className='quote-otd'>
-        <div className='quote'>
-          { !this.props.error && this.props.randomQuote.yodish ? this.props.randomQuote.yodish : this.props.error }
-        </div>
+      <div className='quote'>
+        { !this.props.error && this.props.randomQuote.yodish ? this.props.randomQuote.yodish : this.props.error }
+      </div>
+    );
+  }
+
+  render() {
+
+
+    return (
+      <div className='home-page'>
+        <Stars/>
+        { this.yodaText() }
         <Button onClick={this.props.getRandomQuote} text={'Refresh'} />
       </div>
     );
