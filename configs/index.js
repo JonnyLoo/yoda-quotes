@@ -5,6 +5,6 @@ const API_URL_LOCAL = 'http://localhost:3001';
 
 module.exports = {
   PORT,
-  DB_URL,
-  DB_URL_LOCAL
+  API_URL,
+  API_URL_LOCAL
 };
