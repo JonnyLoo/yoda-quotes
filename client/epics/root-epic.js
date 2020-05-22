@@ -3,8 +3,12 @@ import {
   getAllQuotesEpic,
   getRandomQuoteEpic
 } from './quotes-epic';
+import {
+  getStonksEpic
+} from './stonks-epic';
 
 export default combineEpics(
   getAllQuotesEpic,
-  getRandomQuoteEpic
+  getRandomQuoteEpic,
+  getStonksEpic
 );

@@ -1,3 +1,17 @@
 .other-page {
   height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.woah,
+.woah-90 {
+  height: 100vh;
+  display: block;
+  position: absolute;
+}
+
+.woah-90 {
+  transform: rotateZ(90deg);
 }

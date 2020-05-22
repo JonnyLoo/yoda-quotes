@@ -4,7 +4,7 @@ import {bindActionCreators} from 'redux';
 import PropTypes from 'prop-types';
 import Button from './button';
 import Stars from './stars';
-import * as QuotesActions from '../actions/quotes-actions';
+import * as Actions from '../actions';
 
 export class HomePage extends React.Component {
   constructor(props) {
@@ -53,7 +53,7 @@ const mapDispatchToProps = (dispatch) => {
   return bindActionCreators(
     Object.assign(
       {},
-      QuotesActions
+      Actions
     ),
     dispatch
   );
@@ -61,9 +61,9 @@ const mapDispatchToProps = (dispatch) => {
 
 HomePage.propTypes = {
   allQuotes: PropTypes.array,
-  randomQuote: PropTypes.object,
   getAllQuotes: PropTypes.func,
-  getRandomQuote: PropTypes.func
+  getRandomQuote: PropTypes.func,
+  randomQuote: PropTypes.object
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(HomePage);

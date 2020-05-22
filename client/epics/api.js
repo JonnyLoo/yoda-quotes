@@ -29,5 +29,9 @@ export const API = {
   fetchRandomQuote: () => {
     const url = '/api/quotes/random';
     return fetchHelper(url, 'GET');
+  },
+  fetchStonks: (symbol) => {
+    const url = `/api/stonks/${symbol}`;
+    return fetchHelper(url, 'GET');
   }
 };
