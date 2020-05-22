@@ -1,0 +1,25 @@
+.stonks-page {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.chart-title {
+  color: $green-1;
+  text-transform: uppercase;
+  text-align: center;
+  font-size: 3em;
+}
+
+path, g, line {
+  stroke: $green-1;
+  stroke-width: 3px;
+  fill: none;
+}
+
+g text {
+    font-family: 'Raleway', sans-serif;
+    font-size: 1.25em;
+    letter-spacing: 1.5px;
+}
